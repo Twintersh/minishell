@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:45:16 by twinters          #+#    #+#             */
-/*   Updated: 2022/04/23 17:37:40 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/06 12:11:46 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,26 @@ static char	**set_words(char **splited, char *s, char c, int i)
 	return (splited);
 }
 
+static int	only_c(char const *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**splited;
 	int		s_words;
 
-	if (!s)
+	if (!s || only_c(s, c))
 		return (NULL);
 	s_words = nbwords((char *)s, c);
 	splited = ft_calloc((s_words + 1), sizeof(char *));
