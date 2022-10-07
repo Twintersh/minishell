@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:33:43 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/06 11:20:33 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/06 12:15:00 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,16 @@ int	main(int argc, char **argv, char **envp)
 		return (0);
 	while (1)
 	{
+		str = NULL;
 		str = readline("Minishell> ");
-		add_history(str);
-		cmd = ft_split(str, ' ');
-		exec_cmd(get_cmd_path(cmd[0], envp), cmd, envp);
-		free(str);
-		ft_str_free(cmd);
+		if (*str)
+		{
+			add_history(str);
+			cmd = ft_split(str, ' ');
+			exec_cmd(get_cmd_path(cmd[0], envp), cmd, envp);
+			free(str);
+			ft_str_free(cmd);
+		}
 	}
 	return (0);
 }
