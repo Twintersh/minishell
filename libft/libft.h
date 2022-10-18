@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:41:04 by twinters          #+#    #+#             */
-/*   Updated: 2022/09/26 17:09:53 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:45:30 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,7 @@ int		ft_putunbr(unsigned int nb);
 
 char	*get_next_line(int fd);
 char	*ft_strjoingnl(char *s1, char *s2);
-int		ft_strlen(const char *str);
 int		istherebackn(const char *str, int rd);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
-char	*ft_strcpy(char *dest, char *src);
 void	ft_free(void *tab);
 
 #endif
