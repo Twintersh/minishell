@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:41:03 by twinters          #+#    #+#             */
-/*   Updated: 2022/05/31 13:01:26 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:46:02 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,6 @@ char	*ft_strjoingnl(char *s2, char *s1)
 	return (new_str);
 }
 
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 int	istherebackn(const char *str, int z)
 {
 	int	i;
@@ -65,33 +53,4 @@ int	istherebackn(const char *str, int z)
 	if (!z)
 		return (0);
 	return (i);
-}
-
-char	*ft_substr(const char *s, unsigned int start, size_t len)
-{
-	char			*nc_s;
-	char			*new_s;
-	unsigned int	i;
-
-	if (!s)
-		return (NULL);
-	i = start;
-	nc_s = (char *)s;
-	if (len > (unsigned)ft_strlen(s))
-		len = ft_strlen(s);
-	if ((unsigned int)ft_strlen(nc_s) < start)
-		len = 0;
-	else if (len + (unsigned)start > (unsigned)ft_strlen(s))
-		len = (unsigned)ft_strlen(s) - start;
-	new_s = malloc(sizeof(char) * (len + 1));
-	if (!new_s)
-		return (NULL);
-	i = start;
-	while ((i - start) < len && nc_s[i])
-	{
-		new_s[i - start] = nc_s[i];
-		i++;
-	}
-	new_s[i - start] = '\0';
-	return (new_s);
 }

@@ -1,15 +1,17 @@
 CC = gcc
 NAME = minishell
-SRC = $(wildcard src/*.c)
+SRC = src/access.c src/parsing.c src/main.c \
+list_managing/lst_managing.c
 OBJ=$(SRC:.c=.o)
 LFT = libft
+INCL = -I/src/ -I/list_managing/
 CFLAGS = -Werror -Wall -Wextra
-LFLAGS = -L $(LFT) -lft -lreadline 
+LFLAGS = -L $(LFT) -lft -lreadline
 
 all : $(NAME)
 
 %.o : %.c
-	@$(CC) $(CFLAGS) $(LFLAGS) -I/src/ -c $< -o $@
+	@$(CC) $(CFLAGS) $(LFLAGS) $(INCL) -c $< -o $@
 
 $(NAME) : $(OBJ)
 	@make -C $(LFT)
@@ -18,7 +20,7 @@ $(NAME) : $(OBJ)
 re : fclean all
 
 clean :
-	@rm -rf src/*.o
+	@rm -rf $(OBJ)
 	@make fclean -C $(LFT)
 	@echo Done
 

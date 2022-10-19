@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 15:15:55 by twinters          #+#    #+#             */
-/*   Updated: 2022/05/31 13:01:12 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:46:31 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,30 +64,4 @@ void	ft_free(void *tab)
 		free(tab);
 		tab = NULL;
 	}
-}
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void				*ptr;
-	unsigned long int	a;
-	unsigned char		*tmp;
-
-	a = nmemb * size;
-	if (nmemb >= 65535 || size >= 65535)
-		return (NULL);
-	if (nmemb == 0 || size == 0)
-	{
-		nmemb = 1;
-		size = 1;
-	}
-	ptr = malloc(a);
-	if (!ptr)
-		return (NULL);
-	if (ptr)
-	{
-		tmp = (unsigned char *)ptr;
-		while (a--)
-			*tmp++ = 0;
-	}
-	return (ptr);
 }

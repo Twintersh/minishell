@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:33:43 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/06 12:15:00 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:14:17 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,11 @@ void	exec_cmd(char *cmd, char **args, char **envp)
 
 int	main(int argc, char **argv, char **envp)
 {
-	char	*str;
-	char	**cmd;
-
 	if (argc > 1 || argv[1])
 		return (0);
 	while (1)
 	{
-		str = NULL;
-		str = readline("Minishell> ");
-		if (*str)
-		{
-			add_history(str);
-			cmd = ft_split(str, ' ');
-			exec_cmd(get_cmd_path(cmd[0], envp), cmd, envp);
-			free(str);
-			ft_str_free(cmd);
-		}
+		prompt(envp);
 	}
 	return (0);
 }
