@@ -6,19 +6,20 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:38:29 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/18 17:44:07 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:05:01 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_line	*lst_new(void)
+t_line	*lst_new(char **envp)
 {
 	t_line	*new;
 
 	new = malloc(sizeof(t_line));
 	if (!new)
 		exit(EXIT_FAILURE);
+	new->envp = envp;
 	new->length = 0;
 	new->tail = NULL;
 	new->head = NULL;
@@ -29,6 +30,8 @@ t_line	*add_arg_tail(t_line *list, char *data, int id)
 {
 	t_arg	*new;
 
+	if (!*data)
+		return (NULL);
 	new = malloc(sizeof(t_arg));
 	if (!new || !list)
 		exit(EXIT_FAILURE);

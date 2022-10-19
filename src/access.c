@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:48:24 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/14 14:28:02 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:03:52 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*get_path(char **envp)
 	return (envp[i]);
 }
 
-static char	*add_path(char *path, char *cmd)
+char	*add_path(char *path, char *cmd)
 {
 	char	*cmd_p;
 	char	*buff;
@@ -31,6 +31,32 @@ static char	*add_path(char *path, char *cmd)
 	cmd_p = ft_strjoin(path, buff);
 	free(buff);
 	return (cmd_p);
+}
+
+int	is_cmd(char *cmd, char **envp)
+{
+	char	*cmd_p;
+	char	**path;
+	int		i;
+
+	i = 0;
+	if (!access(cmd, F_OK))
+		return (1);
+	if (*cmd == '/')
+		return (0);
+	path = ft_split(get_path(envp) + 5, ':');
+	cmd_p = add_path(path[i], cmd);
+	while (path[i] && access(cmd_p, F_OK))
+	{
+		free(cmd_p);
+		cmd_p = add_path(path[i], cmd);
+		i++;
+	}
+	free(cmd_p);
+	ft_str_free(path);
+	if (path[i] == NULL)
+		return (0);
+	return (1);
 }
 
 char	*get_cmd_path(char *cmd, char **envp)

@@ -20,7 +20,7 @@ $(NAME) : $(OBJ)
 re : fclean all
 
 clean :
-	@rm -rf src/*.o
+	@rm -rf $(OBJ)
 	@make fclean -C $(LFT)
 	@echo Done
 
