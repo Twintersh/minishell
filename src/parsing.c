@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:45:59 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/19 16:13:45 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:23:26 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	parse(t_line *line, char *str)
 	int		i;
 
 	i = 0;
+	(void)line;
 	while (str[i])
 	{
 		if (str[i] == '|')
@@ -105,7 +106,7 @@ int	get_literal(t_line *line, char *str, int i)
 		&& str[i] != '<' && str[i] != '"' && str[i] != '\'')
 		i++;
 	add_arg_tail(line, ft_substr(str, j, i - j), LITERAL);
-	return (i);
+	return (i - 1);
 }
 
 void	main_exec(char *str, char **envp)
@@ -114,12 +115,13 @@ void	main_exec(char *str, char **envp)
 
 	line = lst_new(envp);
 	parse(line, str);
+	check_variables(line);
 	lit_parse(line);
 	debug(line);
 	lst_free(&line);
 }
 
-void	debug(t_line *chibre)
+void debug(t_line *chibre)
 {
 	t_arg	*tmp;
 
