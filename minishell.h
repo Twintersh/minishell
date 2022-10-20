@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:55:32 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/19 16:07:15 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:17:13 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,9 @@ t_line		*lst_new(char **envp);
 t_line		*add_arg_tail(t_line *list, char *data, int id);
 // t_line		*add_arg_head(t_line *lst, int data);
 void		lst_free(t_line **lst);
+
+//variables
+char		*change_variable(char *str, int i, char **envp);
+void		check_variables(t_line *line);
 
 #endif
