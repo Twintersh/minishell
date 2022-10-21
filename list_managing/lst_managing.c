@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_managing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:38:29 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/19 14:05:01 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:13:52 by mcochin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	lst_free(t_line **lst)
 	while (tmp)
 	{
 		del = tmp;
-		free(tmp->data);
+		if (tmp->data)
+			free(tmp->data);
 		tmp = tmp->next;
 		free(del);
 	}

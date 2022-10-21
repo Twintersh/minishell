@@ -1,7 +1,10 @@
 CC = gcc
 NAME = minishell
-SRC = src/access.c src/parsing.c src/main.c \
-list_managing/lst_managing.c
+SRC = src/access.c \
+	src/parsing.c \
+	src/main.c \
+	src/get_full_cmd.c \
+	list_managing/lst_managing.c
 OBJ=$(SRC:.c=.o)
 LFT = libft
 INCL = -I/src/ -I/list_managing/
@@ -26,5 +29,7 @@ clean :
 
 fclean : clean
 	@rm -rf $(NAME)
+
+f : fclean
 
 .PHONY : clean re fclean all

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:55:32 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/19 16:07:15 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:14:02 by mcochin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,15 @@ void		parse(t_line *line, char *str);
 int			get_literal(t_line *line, char *str, int i);
 void		main_exec(char *str, char **envp);
 void		debug(t_line *chibre);
+char		**get_full_cmd(t_arg *cmd);
 
 //lst_managing.c
 t_line		*lst_new(char **envp);
 t_line		*add_arg_tail(t_line *list, char *data, int id);
 // t_line		*add_arg_head(t_line *lst, int data);
 void		lst_free(t_line **lst);
+
+//get_full_cmd.c
+char	**get_full_cmd(t_arg *cmd);
 
 #endif
