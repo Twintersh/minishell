@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:55:32 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/21 15:25:36 by mcochin          ###   ########.fr       */
+/*   Updated: 2022/10/21 15:32:37 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,6 @@ void		check_variables(t_line *line);
 void		debug(t_line *chibre);
 
 //get_full_cmd.c
-char	**get_full_cmd(t_arg *cmd);
+char		**get_full_cmd(t_arg *cmd);
 
 #endif
