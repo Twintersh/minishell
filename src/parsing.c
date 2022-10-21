@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:45:59 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/19 16:13:45 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/21 10:27:49 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	parse(t_line *line, char *str)
 	int		i;
 
 	i = 0;
+	(void)line;
 	while (str[i])
 	{
 		if (str[i] == '|')
@@ -63,8 +64,8 @@ void	lit_parse(t_line *line)
 	{
 		if (tmp->id % 10 == LITERAL)
 		{
-			if (tmp->data[0] == '-' && tmp->prev && 
-				(tmp->prev->id == CMD || tmp->prev->id == ARG))
+			if (tmp->data[0] == '-' && tmp->prev
+				&& (tmp->prev->id == CMD || tmp->prev->id == ARG))
 				tmp->id = ARG;
 			else if (is_cmd(tmp->data, line->envp)
 				&& (!tmp->prev || (tmp->prev && tmp->prev->id != REDIR)))
@@ -77,7 +78,7 @@ void	lit_parse(t_line *line)
 int	get_quotes(t_line *line, char *str, int i, char c)
 {
 	int	j;
-	int tag;
+	int	tag;
 
 	i++;
 	j = i;
@@ -105,28 +106,5 @@ int	get_literal(t_line *line, char *str, int i)
 		&& str[i] != '<' && str[i] != '"' && str[i] != '\'')
 		i++;
 	add_arg_tail(line, ft_substr(str, j, i - j), LITERAL);
-	return (i);
-}
-
-void	main_exec(char *str, char **envp)
-{
-	t_line	*line;
-
-	line = lst_new(envp);
-	parse(line, str);
-	lit_parse(line);
-	debug(line);
-	lst_free(&line);
-}
-
-void	debug(t_line *chibre)
-{
-	t_arg	*tmp;
-
-	tmp = chibre->head;
-	while (tmp)
-	{
-		printf("id : %d | data : %s\n", tmp->id, tmp->data);
-		tmp = tmp->next;
-	}
+	return (i - 1);
 }

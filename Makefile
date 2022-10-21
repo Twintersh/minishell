@@ -4,6 +4,8 @@ SRC = src/access.c \
 	src/parsing.c \
 	src/main.c \
 	src/get_full_cmd.c \
+	src/variables.c \
+	src/DEBUG.c \
 	list_managing/lst_managing.c
 OBJ=$(SRC:.c=.o)
 LFT = libft

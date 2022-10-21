@@ -6,11 +6,22 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:33:43 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/14 12:14:17 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/21 10:24:15 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+int	main(int argc, char **argv, char **envp)
+{
+	if (argc > 1 || argv[1])
+		return (0);
+	while (1)
+	{
+		prompt(envp);
+	}
+	return (0);
+}
 
 void	ft_str_free(char **str)
 {
@@ -41,13 +52,14 @@ void	exec_cmd(char *cmd, char **args, char **envp)
 	free(cmd);
 }
 
-int	main(int argc, char **argv, char **envp)
+void	main_exec(char *str, char **envp)
 {
-	if (argc > 1 || argv[1])
-		return (0);
-	while (1)
-	{
-		prompt(envp);
-	}
-	return (0);
+	t_line	*line;
+
+	line = lst_new(envp);
+	parse(line, str);
+	check_variables(line);
+	lit_parse(line);
+	debug(line);
+	lst_free(&line);
 }
