@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:54:36 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/20 17:17:21 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/21 10:30:20 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*crop_var(char *str)
 		i++;
 	var = malloc(sizeof(char) * (i + 2));
 	while (j < i)
-	{	
+	{
 		var[j] = str[j];
 		j++;
 	}
@@ -37,12 +37,13 @@ static char	*get_var(char **envp, char *var)
 {
 	int		i;
 	int		varlen;
+
 	i = 0;
 	varlen = ft_strlen(var);
 	while (envp[i] && ft_strncmp(var, envp[i], varlen))
 		i++;
 	if (!envp[i])
-		return (NULL); 
+		return (NULL);
 	return (envp[i] + varlen);
 }
 
@@ -57,7 +58,7 @@ char	*ft_strjoinjoin(char *start, char *mid, char *end)
 	return (new);
 }
 
-char *change_variable(char *str, int i, char **envp)
+char	*change_variable(char *str, int i, char **envp)
 {
 	char	*start;
 	char	*mid;
@@ -78,7 +79,7 @@ char *change_variable(char *str, int i, char **envp)
 void	check_variables(t_line *line)
 {
 	t_arg	*arg;
-	int i;
+	int		i;
 
 	arg = line->head;
 	while (arg)

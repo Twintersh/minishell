@@ -1,7 +1,11 @@
 CC = gcc
 NAME = minishell
-SRC = src/access.c src/parsing.c src/main.c src/variables.c\
-list_managing/lst_managing.c
+SRC = src/access.c \
+		src/parsing.c\
+		src/main.c \
+		src/variables.c \
+		src/DEBUG.c \
+		list_managing/lst_managing.c
 OBJ=$(SRC:.c=.o)
 LFT = libft
 INCL = -I/src/ -I/list_managing/

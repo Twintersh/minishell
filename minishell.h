@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:55:32 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/20 17:17:13 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/21 10:26:13 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,8 @@ void		lst_free(t_line **lst);
 //variables
 char		*change_variable(char *str, int i, char **envp);
 void		check_variables(t_line *line);
+
+//DEBUG.c
+void		debug(t_line *chibre);
 
 #endif
