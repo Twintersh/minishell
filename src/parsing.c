@@ -38,8 +38,8 @@ void	parse(t_line *line, char *str)
 			else
 				add_arg_tail(line, ft_substr(str, i, 1), REDIR);
 		}
-		else if (str[i] == '"' || str[i] == '\'')
-			i = get_quotes(line, str, i, str[i]);
+		// else if (str[i] == '"' || str[i] == '\'')
+		// 	i = get_quotes(line, str, i, str[i]);
 		else if (str[i] != ' ' && str[i] != '>' && str[i] != '<')
 			i = get_literal(line, str, i);
 		i++;
@@ -66,36 +66,46 @@ void	lit_parse(t_line *line)
 	}
 }
 
-int	get_quotes(t_line *line, char *str, int i, char c)
-{
-	int	j;
-	int	tag;
+// int	get_quotes(t_line *line, char *str, int i, char c)
+// {
+// 	int	j;
+// 	int	tag;
 
-	i++;
-	j = i;
-	tag = LITERAL;
-	if (c == '\'')
-		tag += DQUOTE;
-	while (str[i])
-	{
-		if (str[i] == c)
-		{
-			add_arg_tail(line, ft_substr(str, j, i - j), tag);
-			return (i);
-		}
-		i++;
-	}
-	return (i);
-}
+// 	i++;
+// 	j = i;
+// 	tag = LITERAL;
+// 	if (c == '\'')
+// 		tag += DQUOTE;
+// 	while (str[i])
+// 	{
+// 		if (str[i] == c)
+// 		{
+// 			add_arg_tail(line, ft_substr(str, j, i - j), tag);
+// 			return (i);
+// 		}
+// 		i++;
+// 	}
+// 	return (i);
+// }
 
 int	get_literal(t_line *line, char *str, int i)
 {
-	int	j;
+	int		j;
+	int 	quote;
+	// int		tag;
 
 	j = i;
-	while (str[i] && str[i] != ' ' && str[i] != '|' && str[i] != '>'
-		&& str[i] != '<' && str[i] != '"' && str[i] != '\'')
+	// tag = LITERAL;
+	quote = 0;
+	while (str[i] && (quote || !(str[i] == ' ' || str[i] == '|' || str[i] == '>'
+	|| str[i] == '<')))
+	{
+		if (!quote && (str[i] == '\'' || str[i] == '"'))
+			quote = str[i];
+		else if (quote == str[i])
+			quote = 0;
 		i++;
+	}
 	add_arg_tail(line, ft_substr(str, j, i - j), LITERAL);
 	return (i - 1);
 }

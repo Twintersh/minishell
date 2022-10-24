@@ -43,13 +43,11 @@ void	exec_cmd(char *cmd, char **args, char **envp)
 void	main_exec(char *str, char **envp)
 {
 	t_line	*line;
-	char	**arr;
 
 	line = lst_new(envp);
 	parse(line, str);
 	check_variables(line);
 	lit_parse(line);
-	// debug(line);
-	
+	debug(line);
 	lst_free(&line);
 }

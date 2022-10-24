@@ -11,3 +11,11 @@ void	debug(t_line *chibre)
 		tmp = tmp->next;
 	}
 }
+
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	if (argc > 2 || !argv[1])
+// 		return (0);
+// 	main_exec(argv[1], envp);
+// 	return (0);
+// }

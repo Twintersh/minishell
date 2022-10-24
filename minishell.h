@@ -62,7 +62,7 @@ void		exec_cmd(char *cmd, char **args, char **envp);
 
 //parsing.c
 void		prompt(char **envp);
-int			get_quotes(t_line *line, char *str, int i, char c);
+// int			get_quotes(t_line *line, char *str, int i, char c);
 void		lit_parse(t_line *line);
 void		parse(t_line *line, char *str);
 int			get_literal(t_line *line, char *str, int i);

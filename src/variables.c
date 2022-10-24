@@ -57,10 +57,14 @@ char	*change_variable(char *str, int i, char **envp)
 	start = ft_substr(str, 0, i);
 	mid = get_var(envp, var);
 	end = ft_strdup(str + i + ft_strlen(var));
+	free(var);
+	free(str);
 	if (mid)
 		str = ft_strjoinjoin(start, mid, end);
 	else
 		str = ft_strjoin(start, end);
+	free(start);
+	free(end);
 	return (str);
 }
 
@@ -74,6 +78,7 @@ void	check_variables(t_line *line)
 	{
 		if (arg->id == LITERAL)
 		{
+			// printf("id %s : %d\n", arg->data, arg->id);
 			i = 0;
 			while (arg->data[i])
 			{
