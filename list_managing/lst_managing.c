@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_managing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:38:29 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/21 15:13:52 by mcochin          ###   ########.fr       */
+/*   Updated: 2022/10/24 12:43:51 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ t_line	*lst_new(char **envp)
 	return (new);
 }
 
-t_line	*add_arg_tail(t_line *list, char *data, int id)
+t_line	*add_arg_tail(t_line *list, char *str, int id)
 {
 	t_arg	*new;
 
-	if (!*data)
+	if (!*str)
 		return (NULL);
 	new = malloc(sizeof(t_arg));
 	if (!new || !list)
 		exit(EXIT_FAILURE);
 	new->next = NULL;
 	new->id = id;
-	new->data = malloc(sizeof(char) * ft_strlen(data));
-	new->data = data;
+	new->data = str;
 	if (list->tail != NULL)
 	{
 		list->tail->next = new;
@@ -66,8 +65,8 @@ void	lst_free(t_line **lst)
 	while (tmp)
 	{
 		del = tmp;
-		if (tmp->data)
-			free(tmp->data);
+		if (del->data)
+			free(del->data);
 		tmp = tmp->next;
 		free(del);
 	}

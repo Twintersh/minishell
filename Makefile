@@ -10,7 +10,7 @@ SRC = src/access.c \
 OBJ=$(SRC:.c=.o)
 LFT = libft
 INCL = -I/src/ -I/list_managing/
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra -g
 LFLAGS = -L $(LFT) -lft -lreadline
 
 all : $(NAME)

@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:45:59 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/21 10:27:49 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:45:19 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	prompt(char **envp)
 	{
 		add_history(str);
 		if (!ft_strncmp(str, "exit", 5))
+		{
 			exit(EXIT_SUCCESS);
+		}
 		main_exec(str, envp);
 	}
 }

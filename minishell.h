@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 09:55:32 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/21 15:32:37 by twinters         ###   ########.fr       */
+/*   Created: 2022/10/21 15:40:45 by twinters          #+#    #+#             */
+/*   Updated: 2022/10/24 12:25:30 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char		**get_full_cmd(t_arg *cmd);
 
 //lst_managing.c
 t_line		*lst_new(char **envp);
-t_line		*add_arg_tail(t_line *list, char *data, int id);
+t_line		*add_arg_tail(t_line *list, char *str, int id);
 // t_line		*add_arg_head(t_line *lst, int data);
 void		lst_free(t_line **lst);
 

@@ -6,7 +6,7 @@
 /*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:48:24 by twinters          #+#    #+#             */
-/*   Updated: 2022/10/19 15:03:52 by twinters         ###   ########.fr       */
+/*   Updated: 2022/10/24 11:14:01 by twinters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,12 @@ int	is_cmd(char *cmd, char **envp)
 		i++;
 	}
 	free(cmd_p);
-	ft_str_free(path);
 	if (path[i] == NULL)
+	{
+		ft_str_free(path);
 		return (0);
+	}
+	ft_str_free(path);
 	return (1);
 }
 
