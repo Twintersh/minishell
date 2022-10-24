@@ -3,10 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:33:43 by twinters          #+#    #+#             */
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /*   Updated: 2022/10/24 14:55:55 by twinters         ###   ########.fr       */
+=======
+/*   Updated: 2022/10/24 14:58:40 by mcochin          ###   ########.fr       */
+>>>>>>> Stashed changes
+=======
+/*   Updated: 2022/10/24 14:58:40 by mcochin          ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   access.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:48:24 by twinters          #+#    #+#             */
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /*   Updated: 2022/10/24 11:14:01 by twinters         ###   ########.fr       */
+=======
+/*   Updated: 2022/10/24 14:43:49 by mcochin          ###   ########.fr       */
+>>>>>>> Stashed changes
+=======
+/*   Updated: 2022/10/24 14:43:49 by mcochin          ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +27,7 @@ static char	*get_path(char **envp)
 	i = 0;
 	while (ft_strncmp("PATH=", envp[i], 4))
 		i++;
-	return (envp[i]);
+	return (envp[i] + 5);
 }
 
 char	*add_path(char *path, char *cmd)
@@ -44,7 +52,7 @@ int	is_cmd(char *cmd, char **envp)
 		return (1);
 	if (*cmd == '/')
 		return (0);
-	path = ft_split(get_path(envp) + 5, ':');
+	path = ft_split(get_path(envp), ':');
 	cmd_p = add_path(path[i], cmd);
 	while (path[i] && access(cmd_p, F_OK))
 	{

@@ -3,10 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: twinters <twinters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< Updated upstream
 /*   Created: 2022/10/21 15:40:45 by twinters          #+#    #+#             */
 /*   Updated: 2022/10/24 12:25:30 by twinters         ###   ########.fr       */
+=======
+/*   Created: 2022/10/06 09:55:32 by twinters          #+#    #+#             */
+/*   Updated: 2022/10/21 17:54:46 by mcochin          ###   ########.fr       */
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
