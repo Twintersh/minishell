@@ -1,23 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   access.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 21:48:24 by twinters          #+#    #+#             */
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/*   Updated: 2022/10/24 11:14:01 by twinters         ###   ########.fr       */
-=======
-/*   Updated: 2022/10/24 14:43:49 by mcochin          ###   ########.fr       */
->>>>>>> Stashed changes
-=======
-/*   Updated: 2022/10/24 14:43:49 by mcochin          ###   ########.fr       */
->>>>>>> Stashed changes
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../minishell.h"
 
 static char	*get_path(char **envp)

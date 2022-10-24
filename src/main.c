@@ -1,23 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcochin <mcochin@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 10:33:43 by twinters          #+#    #+#             */
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/*   Updated: 2022/10/24 14:55:55 by twinters         ###   ########.fr       */
-=======
-/*   Updated: 2022/10/24 14:58:40 by mcochin          ###   ########.fr       */
->>>>>>> Stashed changes
-=======
-/*   Updated: 2022/10/24 14:58:40 by mcochin          ###   ########.fr       */
->>>>>>> Stashed changes
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../minishell.h"
 
 int	main(int argc, char **argv, char **envp)
@@ -63,11 +43,13 @@ void	exec_cmd(char *cmd, char **args, char **envp)
 void	main_exec(char *str, char **envp)
 {
 	t_line	*line;
+	char	**arr;
 
 	line = lst_new(envp);
 	parse(line, str);
 	check_variables(line);
 	lit_parse(line);
-	debug(line);
+	// debug(line);
+	
 	lst_free(&line);
 }
