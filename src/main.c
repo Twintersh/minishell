@@ -47,7 +47,7 @@ void	main_exec(char *str, char **envp)
 	line = lst_new(envp);
 	parse(line, str);
 	check_variables(line);
-	lit_parse(line);
+	lit_parse(line) ;
 	// ft_exec(line);
 	debug(line);
 	lst_free(&line);
