@@ -27,6 +27,8 @@ static char	*fill_wtquotes(char *data, char *dest)
 	quote = 0;
 	while (data[i])
 	{
+		if (quote == data[i])
+			quote = 0;
 		if (quote || (!quote && !(data[i] == '"' || data[i] == '\'')))
 		{
 			dest[j] = data[i];
@@ -34,8 +36,6 @@ static char	*fill_wtquotes(char *data, char *dest)
 		}
 		if (!quote && (data[i] == '\'' || data[i] == '"'))
 			quote = data[i];
-		if (quote == data[i])
-			quote = 0;
 		i++;
 	}
 	return (dest);
