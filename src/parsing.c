@@ -53,7 +53,10 @@ void	lit_parse(t_line *line)
 	tmp = line->head;
 	while (tmp)
 	{
-		if (tmp->id % 10 == LITERAL)
+		tmp->data = remove_quotes(tmp->data);
+		if (!tmp->data)
+			perror("parsing error");
+		else if (tmp->id % 10 == LITERAL)
 		{
 			if (tmp->data[0] == '-' && tmp->prev
 				&& (tmp->prev->id == CMD || tmp->prev->id == ARG))

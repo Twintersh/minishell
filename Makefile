@@ -7,6 +7,7 @@ SRC = src/access.c \
 	src/variables.c \
 	src/DEBUG.c \
 	src/ft_exec.c \
+	src/quotes.c \
 	list_managing/lst_managing.c
 OBJ=$(SRC:.c=.o)
 LFT = libft

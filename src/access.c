@@ -28,7 +28,7 @@ int	is_cmd(char *cmd, char **envp)
 	int		i;
 
 	i = 0;
-	if (!access(cmd, F_OK))
+	if (!access(cmd, X_OK))
 		return (1);
 	if (*cmd == '/')
 		return (0);

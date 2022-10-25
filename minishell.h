@@ -86,4 +86,11 @@ void		debug(t_line *chibre);
 //get_full_cmd.c
 char		**get_full_cmd(t_arg *cmd);
 
+//ft_exec.c
+void	ft_exec(t_line *lst);
+
+//quotes.c
+int		get_quotes(char *data);
+char	*remove_quotes(char *data);
+
 #endif
