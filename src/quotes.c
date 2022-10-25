@@ -13,13 +13,12 @@ int	get_quotes(char *data)
 	{
 		if (quote == data[i])
 			quote = 0;
-		if (data[i] == '"' || data[i] == '\'')
+		if (!quote && (data[i] == '"' || data[i] == '\''))
 			j++;
 		if (!quote && (data[i] == '\'' || data[i] == '"'))
 			quote = data[i];
 		i++;
 	}
-	printf("%d\n", j);
 	return (j);
 }
 
