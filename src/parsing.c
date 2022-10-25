@@ -95,10 +95,8 @@ int	get_literal(t_line *line, char *str, int i)
 {
 	int		j;
 	int 	quote;
-	// int		tag;
 
 	j = i;
-	// tag = LITERAL;
 	quote = 0;
 	while (str[i] && (quote || !(str[i] == ' ' || str[i] == '|' || str[i] == '>'
 	|| str[i] == '<')))

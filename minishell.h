@@ -29,7 +29,6 @@
 # define PIPE 3
 # define REDIR 4
 # define LITERAL 5
-# define DQUOTE 10
 
 // --------------------------------- STRUCTURES --------------------------------
 

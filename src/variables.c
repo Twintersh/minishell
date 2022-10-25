@@ -8,7 +8,9 @@ static char	*crop_var(char *str)
 
 	i = 0;
 	j = 0;
-	while (str[i] && !(str[i] == ' ' || str[i] == '$'))
+	while (str[i] && !(str[i] == ' ' || str[i] == '$'
+		|| str[i] == '"'|| str[i] == '<' || str[i] == '>'
+		||str[i] == '|' || str[i] == '\''))
 		i++;
 	var = malloc(sizeof(char) * (i + 2));
 	while (j < i)
@@ -72,18 +74,23 @@ void	check_variables(t_line *line)
 {
 	t_arg	*arg;
 	int		i;
+	int		quote;
 
 	arg = line->head;
+	quote = 0;
 	while (arg)
 	{
 		if (arg->id == LITERAL)
 		{
-			// printf("id %s : %d\n", arg->data, arg->id);
 			i = 0;
 			while (arg->data[i])
 			{
-				if (arg->data[i] == '$')
+				if (!quote && arg->data[i] == '$')
 					arg->data = change_variable(arg->data, i, line->envp);
+				else if (!quote && (arg->data[i] == '\''))
+					quote = arg->data[i];
+				else if (quote == arg->data[i])
+					quote = 0;
 				i++;
 			}
 		}

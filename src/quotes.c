@@ -27,7 +27,6 @@ static char	*fill_wtquotes(char *data, char *dest)
 	quote = 0;
 	while (data[i])
 	{
-		printf("%d\n", quote);
 		if (quote || (!quote && !(data[i] == '"' || data[i] == '\'')))
 		{
 			dest[j] = data[i];
