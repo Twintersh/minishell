@@ -33,8 +33,6 @@ void	parse(t_line *line, char *str)
 			else
 				add_arg_tail(line, ft_substr(str, i, 1), REDIR);
 		}
-		// else if (str[i] == '"' || str[i] == '\'')
-		// 	i = get_quotes(line, str, i, str[i]);
 		else if (str[i] != ' ' && str[i] != '>' && str[i] != '<')
 			i = get_literal(line, str, i);
 		i++;
@@ -57,7 +55,8 @@ void	lit_parse(t_line *line)
 				&& (tmp->prev->id == CMD || tmp->prev->id == ARG))
 				tmp->id = ARG;
 			else if (is_cmd(tmp->data, line->envp)
-				&& (!tmp->prev || (tmp->prev && tmp->prev->id != REDIR)))
+				&& (!tmp->prev || (tmp->prev && tmp->prev->id != REDIR
+						&& tmp->prev->id != CMD)))
 				tmp->id = CMD;
 		}
 		tmp = tmp->next;
@@ -89,12 +88,12 @@ void	lit_parse(t_line *line)
 int	get_literal(t_line *line, char *str, int i)
 {
 	int		j;
-	int 	quote;
+	int		quote;
 
 	j = i;
 	quote = 0;
 	while (str[i] && (quote || !(str[i] == ' ' || str[i] == '|' || str[i] == '>'
-	|| str[i] == '<')))
+				|| str[i] == '<')))
 	{
 		if (!quote && (str[i] == '\'' || str[i] == '"'))
 			quote = str[i];

@@ -9,8 +9,8 @@ static char	*crop_var(char *str)
 	i = 0;
 	j = 0;
 	while (str[i] && !(str[i] == ' ' || str[i] == '$'
-		|| str[i] == '"'|| str[i] == '<' || str[i] == '>'
-		||str[i] == '|' || str[i] == '\''))
+			|| str[i] == '"' || str[i] == '<' || str[i] == '>'
+			||str[i] == '|' || str[i] == '\''))
 		i++;
 	var = malloc(sizeof(char) * (i + 2));
 	while (j < i)

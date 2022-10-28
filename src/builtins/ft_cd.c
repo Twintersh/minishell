@@ -10,10 +10,9 @@ int	ft_cd(char **cmd)
 		perror("cd: pwd");
 		return (1);
 	}
-	printf("%s\n", cmd[1]);
 	path = add_path(pwd, cmd[1]);
 	if (chdir(path))
-		perror("cd");
+		perror(cmd[1]);
 	if (path)
 		free(path);
 	return (1);

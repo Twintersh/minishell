@@ -53,7 +53,7 @@ int	is_cmd(char *cmd, char **envp)
 		return (0);
 	path = ft_split(get_path(envp), ':');
 	cmd_p = add_path(path[i], cmd);
-	while (path[i] && access(cmd_p, F_OK))
+	while (path[i] && access(cmd_p, X_OK))
 	{
 		free(cmd_p);
 		cmd_p = add_path(path[i], cmd);

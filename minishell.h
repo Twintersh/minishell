@@ -86,31 +86,31 @@ void		debug(t_line *chibre);
 char		**get_full_cmd(t_arg *cmd);
 
 //ft_exec.c
-void	ft_exec(t_line *lst);
+void		ft_exec(t_line *lst);
 
 //quotes.c
-int		get_quotes(char *data);
-char	*remove_quotes(char *data);
+int			get_quotes(char *data);
+char		*remove_quotes(char *data);
 
 //env.c
-int	ft_env(char **cmd, char **envp);
+int			ft_env(char **cmd, char **envp);
 
 //pwd.c
-int	ft_pwd(char **cmd);
+int			ft_pwd(char **cmd);
 
 //export.c
-int	ft_export(char **cmd);
+int			ft_export(char **cmd);
 
 //unset.c
-int	ft_unset(char **cmd);
+int			ft_unset(char **cmd);
 
 //cd.c
-int	ft_cd(char **cmd);
+int			ft_cd(char **cmd);
 
 //exit.c
-int	ft_exit(t_line *lst, char **cmd);
+int			ft_exit(t_line *lst, char **cmd);
 
 //echo.c
-int	ft_echo(char **cmd);
+int			ft_echo(char **cmd);
 
 #endif
