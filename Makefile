@@ -8,7 +8,14 @@ SRC = src/access.c \
 	src/DEBUG.c \
 	src/ft_exec.c \
 	src/quotes.c \
-	list_managing/lst_managing.c
+	list_managing/lst_managing.c \
+	src/builtins/ft_cd.c \
+	src/builtins/ft_pwd.c \
+	src/builtins/ft_unset.c \
+	src/builtins/ft_export.c \
+	src/builtins/ft_exit.c \
+	src/builtins/ft_echo.c \
+	src/builtins/ft_env.c
 OBJ=$(SRC:.c=.o)
 LFT = libft
 INCL = -I/src/ -I/list_managing/

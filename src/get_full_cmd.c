@@ -39,6 +39,7 @@ char	**get_full_cmd(t_arg *cmd)
 		i++;
 	}
 	arr = ft_calloc(sizeof(char *), i + 1);
+	arr[i] = NULL;
 	arr = fill_cmd_arr(cmd, arr);
 	return (arr);
 }

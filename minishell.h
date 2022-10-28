@@ -92,4 +92,25 @@ void	ft_exec(t_line *lst);
 int		get_quotes(char *data);
 char	*remove_quotes(char *data);
 
+//env.c
+int	ft_env(char **cmd, char **envp);
+
+//pwd.c
+int	ft_pwd(char **cmd);
+
+//export.c
+int	ft_export(char **cmd);
+
+//unset.c
+int	ft_unset(char **cmd);
+
+//cd.c
+int	ft_cd(char **cmd);
+
+//exit.c
+int	ft_exit(t_line *lst, char **cmd);
+
+//echo.c
+int	ft_echo(char **cmd);
+
 #endif

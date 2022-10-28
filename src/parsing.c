@@ -9,11 +9,6 @@ void	prompt(char **envp)
 	if (*str)
 	{
 		add_history(str);
-		if (!ft_strncmp(str, "exit", 5))
-		{
-			clear_history();
-			exit(EXIT_SUCCESS);
-		}
 		main_exec(str, envp);
 	}
 }

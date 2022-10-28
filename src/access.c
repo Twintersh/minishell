@@ -1,5 +1,24 @@
 #include "../minishell.h"
 
+static int	is_builtins(char *cmd)
+{
+	if (!ft_strncmp("env", cmd, 3))
+		return (1);
+	else if (!ft_strncmp("pwd", cmd, 3))
+		return (1);
+	else if (!ft_strncmp("echo", cmd, 4))
+		return (1);
+	else if (!ft_strncmp("cd", cmd, 2))
+		return (1);
+	else if (!ft_strncmp("unset", cmd, 5))
+		return (1);
+	else if (!ft_strncmp("export", cmd, 6))
+		return (1);
+	else if (!ft_strncmp("exit", cmd, 4))
+		return (1);
+	return (0);
+}
+
 static char	*get_path(char **envp)
 {
 	int	i;
@@ -28,7 +47,7 @@ int	is_cmd(char *cmd, char **envp)
 	int		i;
 
 	i = 0;
-	if (!access(cmd, X_OK))
+	if (is_builtins(cmd) || !access(cmd, X_OK))
 		return (1);
 	if (*cmd == '/')
 		return (0);

@@ -1,15 +1,15 @@
 #include "../minishell.h"
 
-// int	main(int argc, char **argv, char **envp)
-// {
-// 	if (argc > 1 || argv[1])
-// 		return (0);
-// 	while (1)
-// 	{
-// 		prompt(envp);
-// 	}
-// 	return (0);
-// }
+int	main(int argc, char **argv, char **envp)
+{
+	if (argc > 1 || argv[1])
+		return (0);
+	while (1)
+	{
+		prompt(envp);
+	}
+	return (0);
+}
 
 void	ft_str_free(char **str)
 {
@@ -48,7 +48,7 @@ void	main_exec(char *str, char **envp)
 	parse(line, str);
 	check_variables(line);
 	lit_parse(line) ;
-	// ft_exec(line);
-	debug(line);
+	// debug(line);
+	ft_exec(line);
 	lst_free(&line);
 }
