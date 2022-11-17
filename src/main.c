@@ -48,7 +48,20 @@ void	main_exec(char *str, char **envp)
 	parse(line, str);
 	check_variables(line);
 	lit_parse(line);
-	// debug(line);
-	ft_exec(line);
+	if (!check_struct(line))
+	debug(line);
 	lst_free(&line);
+}
+
+void	prompt(char **envp)
+{
+	char	*str;
+
+	str = NULL;
+	str = readline("Minishell> ");
+	if (*str)
+	{
+		add_history(str);
+		main_exec(str, envp);
+	}
 }

@@ -1,18 +1,5 @@
 #include "../minishell.h"
 
-void	prompt(char **envp)
-{
-	char	*str;
-
-	str = NULL;
-	str = readline("Minishell> ");
-	if (*str)
-	{
-		add_history(str);
-		main_exec(str, envp);
-	}
-}
-
 void	parse(t_line *line, char *str)
 {
 	int		i;
@@ -54,36 +41,12 @@ void	lit_parse(t_line *line)
 			if (tmp->data[0] == '-' && tmp->prev
 				&& (tmp->prev->id == CMD || tmp->prev->id == ARG))
 				tmp->id = ARG;
-			else if (is_cmd(tmp->data, line->envp)
-				&& (!tmp->prev || (tmp->prev && tmp->prev->id != REDIR
-						&& tmp->prev->id != CMD)))
+			else if (is_cmd(tmp->data, line->envp))
 				tmp->id = CMD;
 		}
 		tmp = tmp->next;
 	}
 }
-
-// int	get_quotes(t_line *line, char *str, int i, char c)
-// {
-// 	int	j;
-// 	int	tag;
-
-// 	i++;
-// 	j = i;
-// 	tag = LITERAL;
-// 	if (c == '\'')
-// 		tag += DQUOTE;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == c)
-// 		{
-// 			add_arg_tail(line, ft_substr(str, j, i - j), tag);
-// 			return (i);
-// 		}
-// 		i++;
-// 	}
-// 	return (i);
-// }
 
 int	get_literal(t_line *line, char *str, int i)
 {

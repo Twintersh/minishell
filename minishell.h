@@ -48,6 +48,12 @@ typedef struct s_line
 	char			**envp;
 }t_line;
 
+typedef struct s_cmds
+{
+	char	**cmd1;
+	char	**cmd2;
+}t_cmds;
+
 // --------------------------------- FUNCTIONS ---------------------------------
 
 // access.c
@@ -58,10 +64,9 @@ char		*add_path(char *path, char *cmd);
 // main.c
 void		ft_str_free(char **str);
 void		exec_cmd(char *cmd, char **args, char **envp);
+void		prompt(char **envp);
 
 //parsing.c
-void		prompt(char **envp);
-// int			get_quotes(t_line *line, char *str, int i, char c);
 void		lit_parse(t_line *line);
 void		parse(t_line *line, char *str);
 int			get_literal(t_line *line, char *str, int i);
@@ -78,6 +83,10 @@ void		lst_free(t_line **lst);
 //variables
 char		*change_variable(char *str, int i, char **envp);
 void		check_variables(t_line *line);
+
+//struct_parsing.c
+int	check_struct(t_line *line);
+int	check_pipes(t_line *line);
 
 //DEBUG.c
 void		debug(t_line *chibre);

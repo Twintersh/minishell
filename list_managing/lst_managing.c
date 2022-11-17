@@ -9,6 +9,7 @@ t_line	*lst_new(char **envp)
 		exit(EXIT_FAILURE);
 	new->envp = envp;
 	new->length = 0;
+	new->nb_cmds = 0;
 	new->tail = NULL;
 	new->head = NULL;
 	return (new);

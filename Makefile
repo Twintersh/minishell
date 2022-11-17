@@ -8,6 +8,7 @@ SRC = src/access.c \
 	src/DEBUG.c \
 	src/ft_exec.c \
 	src/quotes.c \
+	src/struct_parsing.c \
 	list_managing/lst_managing.c \
 	src/builtins/ft_cd.c \
 	src/builtins/ft_pwd.c \
