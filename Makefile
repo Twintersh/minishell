@@ -8,7 +8,9 @@ SRC = src/access.c \
 	src/DEBUG.c \
 	src/ft_exec.c \
 	src/quotes.c \
-	list_managing/lst_managing.c \
+	list_managing/line_managing.c \
+	list_managing/envp_managing.c \
+	list_managing/envp_utils.c \
 	src/builtins/ft_cd.c \
 	src/builtins/ft_pwd.c \
 	src/builtins/ft_unset.c \

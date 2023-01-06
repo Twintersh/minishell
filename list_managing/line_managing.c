@@ -1,6 +1,6 @@
 #include "../minishell.h"
 
-t_line	*lst_new(char **envp)
+t_line	*lst_new(t_envp *envp)
 {
 	t_line	*new;
 

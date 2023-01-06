@@ -15,5 +15,5 @@ int	ft_cd(char **cmd)
 		perror(cmd[1]);
 	if (path)
 		free(path);
-	return (1);
+	return (0);
 }

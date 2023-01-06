@@ -16,5 +16,5 @@ int	ft_pwd(char **cmd)
 	}
 	else
 		printf("%s\n", pwd);
-	return (1);
+	return (0);
 }

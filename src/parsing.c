@@ -1,6 +1,6 @@
 #include "../minishell.h"
 
-void	prompt(char **envp)
+void	prompt(t_envp *envp)
 {
 	char	*str;
 
@@ -39,7 +39,7 @@ void	parse(t_line *line, char *str)
 	}
 }
 
-void	lit_parse(t_line *line)
+void	lit_parse(t_line *line, char **envp)
 {
 	t_arg	*tmp;
 
@@ -54,7 +54,7 @@ void	lit_parse(t_line *line)
 			if (tmp->data[0] == '-' && tmp->prev
 				&& (tmp->prev->id == CMD || tmp->prev->id == ARG))
 				tmp->id = ARG;
-			else if (is_cmd(tmp->data, line->envp)
+			else if (is_cmd(tmp->data, envp)
 				&& (!tmp->prev || (tmp->prev && tmp->prev->id != REDIR
 						&& tmp->prev->id != CMD)))
 				tmp->id = CMD;

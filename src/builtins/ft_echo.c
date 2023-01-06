@@ -13,5 +13,5 @@ int	ft_echo(char **cmd)
 			printf(" ");
 	}
 	printf("\n");
-	return (1);
+	return (0);
 }

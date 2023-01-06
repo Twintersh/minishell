@@ -1,19 +1,19 @@
 #include "../../minishell.h"
 
-int	ft_env(char **cmd, char **envp)
+int	ft_env(char **cmd, t_envp *envp)
 {
-	int	i;
+	t_vars	*tmp;
 
-	i = 0;
+	tmp = envp->head;
 	if (cmd[1])
 	{
 		perror("env : too many arguments");
 		return (1);
 	}
-	while (envp[i])
+	while (tmp)
 	{
-		printf("%s\n", envp[i]);
-		i++;
+		printf("%s=%s\n", tmp->var, tmp->value);
+		tmp = tmp->next;
 	}
-	return (1);
+	return (0);
 }

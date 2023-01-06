@@ -70,7 +70,7 @@ char	*change_variable(char *str, int i, char **envp)
 	return (str);
 }
 
-void	check_variables(t_line *line)
+void	check_variables(t_line *line, char **envp)
 {
 	t_arg	*arg;
 	int		i;
@@ -86,7 +86,7 @@ void	check_variables(t_line *line)
 			while (arg->data[i])
 			{
 				if (!quote && arg->data[i] == '$')
-					arg->data = change_variable(arg->data, i, line->envp);
+					arg->data = change_variable(arg->data, i, envp);
 				else if (!quote && (arg->data[i] == '\''))
 					quote = arg->data[i];
 				else if (quote == arg->data[i])
