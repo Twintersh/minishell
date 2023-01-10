@@ -69,7 +69,7 @@ int	ft_export(char **cmd, t_envp *envp)
 	status = 0;
 	if (!cmd[1])
 	{
-		ft_env(cmd, envp);
+		print_env_alpha(envp);
 		return (0);
 	}
 	while (cmd[i])

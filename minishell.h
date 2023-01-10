@@ -126,6 +126,9 @@ int			ft_pwd(char **cmd);
 //export.c
 int			ft_export(char **cmd, t_envp *envp);
 
+//ft_export_utils.c
+void		print_env_alpha(t_envp *envp);
+
 //unset.c
 int			ft_unset(char **cmd, t_envp *envp);
 
