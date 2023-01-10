@@ -66,23 +66,25 @@ typedef struct s_line
 // --------------------------------- FUNCTIONS ---------------------------------
 
 // access.c
-char		*get_cmd_path(char *cmd, char **envp);
-int			is_cmd(char *cmd, char **envp);
 char		*add_path(char *path, char *cmd);
+int			is_cmd(char *cmd, char **envp);
+char		*get_cmd_path(char *cmd, char **envp);
 
 // main.c
+int			main(int argc, char **argv, char **envp);
 void		ft_str_free(char **str);
 int			exec_cmd(char *cmd, char **args, char **envp);
+void		main_exec(char *str, t_envp *envp);
 
 //parsing.c
 void		prompt(t_envp *envp);
-// int			get_quotes(t_line *line, char *str, int i, char c);
-void		lit_parse(t_line *line, char **envp);
 void		parse(t_line *line, char *str);
+void		lit_parse(t_line *line, char **envp);
 int			get_literal(t_line *line, char *str, int i);
-void		main_exec(char *str, t_envp *envp);
-void		debug(t_line *chibre);
-char		**get_full_cmd(t_arg *cmd);
+
+//struct_parsing
+int			check_struct(t_line *line);
+int			check_pipes(t_line *line);
 
 //line_managing.c
 t_line		*lst_new(t_envp *envp);
@@ -91,18 +93,18 @@ void		lst_free(t_line **lst);
 
 //envp_managing.c
 t_envp		*lst_env_new(void);
+void		ft_delone_envp(t_vars **head, t_vars *del);
 t_envp		*add_arg_tail_env(t_envp *envp, char *var, char *value);
 void		lst_env_free(t_envp **envp);
-void		ft_delone_envp(t_vars **head, t_vars *del);
 
 //envp_utils.c
 t_envp		*arr_to_lst(t_envp *lst, char **arr);
 char		**lst_to_arr(t_envp *envp_lst);
 
-//variables
+//variables.c
+char		*ft_strjoinjoin(char *start, char *mid, char *end);
 char		*change_variable(char *str, int i, char **envp);
 void		check_variables(t_line *line, char **envp);
-char		*ft_strjoinjoin(char *start, char *mid, char *end);
 
 //DEBUG.c
 void		debug(t_line *chibre);
@@ -114,7 +116,7 @@ char		**get_full_cmd(t_arg *cmd);
 void		ft_exec(t_line *lst, char **envp);
 
 //quotes.c
-int			get_quotes(char *data);
+int			get_nb_quotes(char *data);
 char		*remove_quotes(char *data);
 
 //env.c

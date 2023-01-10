@@ -8,6 +8,7 @@ SRC = src/access.c \
 	src/DEBUG.c \
 	src/ft_exec.c \
 	src/quotes.c \
+	src/struct_check.c \
 	list_managing/line_managing.c \
 	list_managing/envp_managing.c \
 	list_managing/envp_utils.c \

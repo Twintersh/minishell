@@ -56,7 +56,10 @@ void	main_exec(char *str, t_envp *envp)
 	parse(line, str);
 	check_variables(line, envp_arr);
 	lit_parse(line, envp_arr);
-	ft_exec(line, envp_arr);
+	if (check_struct(line))
+		ft_exec(line, envp_arr);
+	else
+		debug(line);
 	ft_str_free(envp_arr);
 	lst_free(&line);
 }

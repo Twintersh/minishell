@@ -1,6 +1,6 @@
 #include "../minishell.h"
 
-int	get_quotes(char *data)
+int	get_nb_quotes(char *data)
 {
 	int	i;
 	int	j;
@@ -14,15 +14,16 @@ int	get_quotes(char *data)
 		if (quote == data[i])
 			quote = 0;
 		if (!quote && (data[i] == '"' || data[i] == '\''))
+		{
 			j++;
-		if (!quote && (data[i] == '\'' || data[i] == '"'))
 			quote = data[i];
+		}
 		i++;
 	}
 	return (j);
 }
 
-static char	*fill_wtquotes(char *data, char *dest)
+static char	*fill_without_quotes(char *data, char *dest)
 {
 	int	j;
 	int	i;
@@ -50,15 +51,15 @@ static char	*fill_wtquotes(char *data, char *dest)
 char	*remove_quotes(char *data)
 {
 	char	*dest;
-	int		i;
+	int		nb_quotes;
 
-	i = get_quotes(data);
-	if (i == 0)
+	nb_quotes = get_nb_quotes(data);
+	if (nb_quotes == 0)
 		return (data);
-	if ((i % 2) == 1)
+	if ((nb_quotes % 2) == 1)
 		return (NULL);
-	dest = ft_calloc(sizeof(char), ft_strlen(data) + 1 - i);
-	dest = fill_wtquotes(data, dest);
+	dest = ft_calloc(sizeof(char), ft_strlen(data) + 1 - nb_quotes);
+	dest = fill_without_quotes(data, dest);
 	free(data);
 	return (dest);
 }

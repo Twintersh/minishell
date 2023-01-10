@@ -2,7 +2,7 @@
 
 int	check_struct(t_line *line)
 {
-	t_arg	*tmp;
+ 	t_arg	*tmp;
 	int		cmd;
 	int		return_value;
 
@@ -35,10 +35,9 @@ int	check_pipes(t_line *line)
 			pipe--;
 		if (tmp->id == PIPE)
 			pipe++;
-		// printf("%d\n", pipe);
 		tmp = tmp->next;
 	}
 	if (pipe)
-		printf("Non\n");
-	return (0);
+		return (0);
+	return (1);
 }
